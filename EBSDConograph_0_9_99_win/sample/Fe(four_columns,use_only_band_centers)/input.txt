@@ -1,0 +1,39 @@
+# 0:quick search, 1:exhaustive search
+0
+
+# The input phi, sigma are supposed to contain errors within this range (degree).
+1.0
+
+# The unit-cell scales s1, s2 computed from band widths are supposed to equal,
+# if both of s1 <= s2*(this.value) and s2 <= s1*(this.value) hold.
+3.0
+
+# (Used only for Bravais lattice determination and selection of output solutions when there are very similar solutions)
+# lattice-vector lengths d1, d2 are considered to equal, if d1 <= d2*(1+ this.value) and d2 <= d1*(1+ this.value) hold.
+0.02
+
+# (Used only for selecting output solutions when there are very similar ones)
+#  lattice-vector lengths d1, d2 are considered to equal, if d1 <= d2*(1+ this.value) and d2 <= d1*(1+ this.value) hold.
+0.01
+
+# The number of the Miller indices generated for computation of the figure of merit M.
+400
+
+# The upper threshold for the absolute values |h|, |k|, |l| of the Miller indices generated for computation of the figure of merit M.
+7
+
+# Refine the pattern center shift DeltaX, DeltaY, DeltaZ? (Z: the direction perpendicular to the screen)
+# (No: 0, Yes: 1)
+1          1          1
+
+# Only the solution with the figure of merit larger than this value is output.
+3.0
+
+# Axis for rhombohedral symmetry (“Rhombohedral” or “Hexagonal”)
+      Rhombohedral
+
+# Axis for monoclinic symmetry ("A", "B", or "C")
+              B
+
+# Output in latex style (0:no, 1:yes (for journal writing))
+              0

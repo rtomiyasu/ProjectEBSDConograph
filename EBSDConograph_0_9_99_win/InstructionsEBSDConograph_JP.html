@@ -1,0 +1,298 @@
+<html lang="ja">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="description" content="CONOGRAPHの方法に基づく，ユニットセル情報を用いないEBSD指数付けプログラムを配布中"> 
+<meta name="keywords" content="Kikuchi pattern, Electron backscatter diffraction, EBSD, software, open source, download, CONOGRAPH">
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    TeX: { equationNumbers: { autoNumber: "AMS" }},
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { matchFontHeight: false },
+    displayAlign: "left",
+    displayIndent: "2em"
+  });
+</script>
+<style type="text/css">
+   body { line-height: 1.5; }
+   p{text-indent:1em}
+</style>
+<style>
+.bracket{
+ counter-reset:item;
+ list-style:none;
+}
+.bracket li:before{
+ content:"[" counters(item, "-") "]";
+ counter-increment:item;
+ margin-right:0.5em;
+}
+.bracket li{
+ padding-left:1.5em;
+ text-indent:-1.5em;
+}
+</style>
+<head>
+<title> EBSD-CONOGRAPH (CUI版プログラム)の操作説明書 </title>
+</head>
+<body lang="ja">
+<font size="+1"><b> EBSD-CONOGRAPH (CUI版プログラム)の操作説明書 </b></font><br>
+<font size="-1" color="#339999"> [<a href="InstructionsEBSDConograph.html">English</a> / Japanese] </font><br>
+<p>
+以下では，オープンソースのEBSD-CONOGRAPH Version 0.99 (<a href="https://osdn.net/projects/ebsd-conograph/releases/">download page</a>@sourceforge.jp)について説明します．<BR>
+このプログラムは，
+もともと粉末回折のために開発された<a href="https://conograph.osdn.jp/ConographGUI/web_page_JP.html">Conograph</a>の方法に基づき，
+電子線後方回折(EBSD)の菊池パターン (Figure 1)のバンド情報から，格子定数の推定とバンドの指数付けを同時に行うab-initio indexingを実施します．
+</p>
+<div align="center"><figure>
+   <img src="figures/KikuchiPattern.png" width="900" height="389" alt="Figure 1">
+   <figcaption align="center"><font color="blue">図1: 菊池パターン(鋼のシミュレーションデータ)とバンド抽出結果．黄色線はバンドの中心線（またはその平行線）を示す．<BR>
+赤線はパターンセンターを通るバンドの垂線の一部で，バンド幅を示す．</font></figcaption>
+</figure></div>
+
+<p>
+ソフトウェア実行前に，菊池パターンから抽出する必要がある情報は:
+<ol>
+ <LI> バンドの中心線の座標 (&phi;, &sigma;),</LI>
+ <LI> バンド幅 (&sigma;<sub>begin</sub>, &sigma;<sub>end</sub>).</LI>
+</ol>
+</p>
+<p>
+EBSDソフトウェアには，PC座標の補正とバンド検出を自動で行うプログラムが必要ですが，
+配布中のソフトウェアにはまだ実装されていません．
+これは，それぞれの手法の精度および信頼性の向上が研究途上であることも反映しています．
+</p>
+<p>
+指数付けの手法およびプログラムは，上記の事前処理とは独立に実装できます．
+PCやバンド座標がある程度の誤差を含む場合も，以下の原理的な問題を無視すれば，
+正解に近い格子定数を得ることは可能です:
+<ul type="circle">
+ <LI> PCやバンドの中心線，バンド幅の誤差が大きいほど，得られたユニットセルの精度も悪くなる. </LI>
+ <LI> ab-initio indexingでは，同程度に良い複数の異なる解が生じることがあり，
+ 特に，バンドエッジが明瞭でなく格子の対称性が低いときに起こる [1]．</LI>
+</ul>
+</p>
+
+<h2>FAQ</h2>
+<ul>
+    <li><a href="#HowtoUse">EBSD-CONOGRAPHの使い方</a></li>
+    <li><a href="#InputOutputFiles">入出力ファイルの内容について</a></li>
+<ul>
+    <li><a href="#InputFiles">入力ファイル</a></li>
+    <li><a href="#OutputFile">出力されるパラメータ</a></li>
+    <li><a href="#FigureOfMerit">Figure of merit M<sup>new</sup></a></li>
+</ul>
+    <li><a href="#ParametersToModify">うまくいかないときに変更するinput.txtのパラメータ</a>
+    <li><a href="#HowtoReportBugs">バグ報告のお願い</a></li>
+    <li><a href="#copyright">著作権について</a></li>
+</ul>
+
+<h3><a name="HowtoUse">EBSD-CONOGRAPHの使い方</a></h3>
+<ol>
+
+<LI> 同プログラムを実行するには，以下のdata.txt, input.txtを入力ファイルとして準備する必要があります．
+（付属の Sample フォルダに入力例があります．）
+ <UL>
+  <LI> input.txt：探索ファイルや出力を調整する入力パラータを含む
+    (<a href="sample/Fe(three_columns,use_band_widths)/input.txt">例</a>)
+  </LI>
+  <LI> data.txt: バンドの中心線とバンド幅の情報を含む．
+   <ul>
+    <LI> Example 1: <a href="sample/Fe(three_columns,use_band_widths)/data.txt">data.txt</a> (3列データ: &phi;, &sigma;<sub>begin</sub>, &sigma;<sub>end</sub>. このとき，&sigma;は(&sigma;<sub>begin</sub> + &sigma;<sub>end</sub>)/2とする), </LI>
+    <LI> Example 2: <a href="sample/Fe(four_columns,use_only_band_centers)/data.txt">data.txt</a> (4列データ: &phi;, &sigma;, &sigma;<sub>begin</sub>, &sigma;<sub>end</sub>). </LI>
+   </ul>
+   data.txtの1行目では，以下のいずれを実行するかのフラグ 0/1を指定してください(3,4列データどちらでも同じ)．
+   <ul>
+    <LI> 1: &phi;, &sigma;, &sigma;<sub>begin</sub>, &sigma;<sub>end</sub>からの，格子定数の推定 <BR>
+     * この場合，一般に，バンド幅(&sigma;<sub>begin</sub>, &sigma;<sub>end</sub>)の精度が悪いため，得られる格子定数の精度も悪くなります．</LI>
+    <LI> 0: &phi;, &sigma;からの，比 a/c, b/c と角度 &alpha;, &beta;, &gamma; の推定．
+    </LI>
+   </ul>
+  </LI>
+ </UL>
+</LI>
+<LI> Sampleフォルダの中の一つのフォルダをコピーし，
+コピー先のフォルダ内のdata.txtを(解析結果をもっとよくしたい場合，input.txtも)適宜修正してください．<BR>
+</LI>
+
+<LI> コマンドプロンプト，またはお使いのOSのターミナルウィンドウを立ち上げ，
+     上で変更した入力ファイルと同じフォルダにカレントフォルダを移動してください．
+</LI>
+
+<LI> コマンドプロンプトより，EBSDConograph.exeのパスを入力して実行します．</LI>
+</ol>
+
+<h3><a name="InputOutputFiles">入出力ファイルの内容について</a></h3>
+
+<h4><a name="InputFiles">Input files</a></h4>
+<p>
+図2(c)に，&phi;, &sigma;, &sigma;<sub>begin</sub>, &sigma;<sub>end</sub> がEBSD画像のバンド座標, バンド幅からどのように与えられるかを示します．
+</p>
+<div align="center"><figure>
+   <img src="figures/KosselCone.png" width="900" height="241" alt="Figure 1">
+   <figcaption align="left"><font color="blue">図2: (a) バンドの中心線は，
+蛍光板とprojection center(PC)を通る回折面の交わり．
+パターンセンター O はPCから蛍光板に下した垂線の足の座標に等しい．
+(b) バンドエッジは，蛍光板と円錐面 (Kossel cone)の交わり，よって双曲線になる(<a href ="html/FormulasForEBSDBandEdges_JP.html">式</a>)．
+(c) 蛍光板は紙面と並行とし，長さの単位はカメラ長(= PCと蛍光板の距離)が1となるよう設定する．
+このとき，&phi;は，X軸とPC2からバンドの中心線に下した垂線がなす角度に等しい．
+また，Oとバンドの中心線, バンドエッジとの距離から
+&sigma;, &sigma;<sub>begin</sub>, &sigma;<sub>end</sub>が得られる．</font>
+   </figcaption>
+</figure></div>
+<p>
+バンド幅情報は，長さの比a/c, b/cと角度&alpha;, &beta;, &gamma;
+を一意に決めるため，さらに格子定数のスケール (よってa, b, c)を得るために必要です．
+実際，図2(b)にみるように，ブラッグ角 &theta; は，
+2 &theta; = &sigma;<sub>end</sub> - &sigma;<sub>begin</sub>
+より，バンド幅から得ることができます．さらにブラッグの法則より，
+\begin{eqnarray*}
+	2 d \sin \theta = n \lambda, 
+	&& d: \text{回折面の格子面間隔}, \\
+	&& n: \text{整数},\quad \lambda: \text{電子線ビームの波長}.
+\end{eqnarray*}
+このとき，各回折面に垂直な逆格子ベクトルを$n a^*$ ($n$: integer)とすると (| &ensp; |はベクトルの長さ)，
+\begin{eqnarray}
+	\sin \theta = n \lambda/2 d = \left| n a^* \right| \lambda/2. 
+\end{eqnarray}
+
+式(1)より， $n a^*$ ($n$: 整数)のミラー指数$n (h k \ell)$に
+バンドの中心線は同一ですが，
+バンド幅は異なります．
+もっともよく見えるのは$n = \pm 1$のバンドであることが多いですが，
+構造因子の大きさや空間群の消滅則の影響があり(Nolze & Winkelmann, 2017)，さらに例外もあるようです(Fig.19 of Day (2008)).
+</p>
+<h4><a name="OutputFile">Output parameters</a></h4>
+<p> 以下はソフトウェアの出力ファイルの例です: 
+<ul type="square">
+ <LI> Example 1: <a href="sample/Fe(three_columns,use_band_widths)/output/out.txt">out.txt</a> (バンド幅を用いた場合), </LI>
+ <LI> Example 2: <a href="sample/Fe(four_columns,use_only_band_centers)/output/out.txt">out.txt</a> (&phi;, &sigma;のみを用いた場合). </LI>
+</ul>
+</p>
+<p>
+出力ファイルout.txtの各格子定数は，ブラべー格子で分類され，
+[1]で定義されたfigure of merit (M<sup>new</sup>)でソートされています．
+また以下のパラメータも非線形最小二乗法による精密化の後、出力されます．
+<ol>
+ <LI> 以下の関係式を満たす実格子基底$a_1$, $a_2$, $a_3$とその各成分の推定誤差:
+\[
+ \begin{pmatrix}
+		a_1 \cdot a_1 & a_1 \cdot a_2 & a_1 \cdot a_3 \\
+		a_2 \cdot a_1 & a_2 \cdot a_2 & a_2 \cdot a_3 \\
+		a_3 \cdot a_1 & a_3 \cdot a_2 & a_3 \cdot a_3 \\
+     \end{pmatrix}
+ = 
+  \begin{pmatrix}
+		a^2 & ab \cos \gamma & ac \cos \beta \\
+		ab \cos \gamma & b^2 & bc \cos \alpha \\
+		ac \cos \beta    & bc \cos \alpha & c^2
+  \end{pmatrix}.
+\quad a, b, c, \alpha, \beta, \gamma: \text{格子定数.}
+\]
+ </LI>
+ <LI> 実格子の向き(具体的には以下の直交行列$G$)を表すオイラー角 &theta;<sub>1</sub>, &theta;<sub>2</sub>, &theta;<sub>3</sub>とその推定誤差:
+\[
+	G := L^{-1} A =
+	\begin{pmatrix}
+		\cos \theta_1 & \sin \theta_1 & 0 \\
+		-\sin \theta_1 & \cos \theta_1 & 0 \\
+		0 & 0 & 1 \\
+	\end{pmatrix}
+	\begin{pmatrix}
+		1 & 0 & 0 \\
+		0 & \cos \theta_2 & \sin \theta_2 \\
+		0 & -\sin \theta_2 & \cos \theta_2 \\
+	\end{pmatrix}
+	\begin{pmatrix}
+		\cos \theta_3 & \sin \theta_3 & 0 \\
+		-\sin \theta_3 & \cos \theta_3 & 0 \\
+		0 & 0 & 1 \\
+	\end{pmatrix}.
+\]
+	ただし，$A$は格子基底$a_1$, $a_2$, $a_3$を各行とする$3 \times 3$行列, $L$は$L L^T = A A^T$を満たす下三角行列．
+ </LI>
+ <LI> PCシフト &Delta; x, &Delta; y, &Delta; zとその推定誤差. 
+  入力ファイルdata.txt作成時に仮定したカメラ長, パターンセンターの座標を
+  $L^{old}$, $(X^{old}, Y^{old})$としたとき，
+ 新しいカメラ長$L^{new}$とパターンセンターの座標$(X^{new}, Y^{new})$は以下に等しい:
+\begin{eqnarray*}
+L^{new} &=& (1 - \Delta z) L^{old}, \\
+(X^{new}, Y^{new}) &=& (X^{old}, Y^{old}) + (L^{old} \Delta x, L^{old} \Delta y).
+\end{eqnarray*}
+ </LI>
+</ol>
+これら out.txt 内のパラメータに関する注意点として，
+<ul type="circle">
+ <LI> まれに，M<sup>new</sup>やカイ二乗値などの指標
+ が精密化によって悪くなるが，これは、各バンドに割り当てられるミラー指数が精密化の結果，変わるため．</LI>
+ <LI> 上記の推定誤差は， 
+入力角&phi;, &sigma;, &sigma;<sub>begin</sub>, &sigma;<sub>end</sub>が 
+1度程度の誤差を有するという仮定の下で
+非線形最小二乗法を実施したときの波及誤差になる．</LI>
+</ul>
+</p>
+<h4><a name="FigureOfMerit">Figure of merit M<sup>new</sup></a></h4>
+<p>
+M<sup>new</sup>は粉末回折のde Wolff Mの一般化として定義されるため，
+Mは対称性の高い格子を好むという点を除けば，
+非常によく似た性質を持ちます (参考: &#9317; of Table 5-2, page 5-5 of <a href="https://conograph.osdn.jp/ConographGUI/manual_win_jp.pdf">CONOGRAPH manual</a>)．すなわち，
+<ul>
+ <LI> ある格子定数についてM<sup>new</sup> > 10なら，指数付けに成功した可能性が高い．
+ <LI> 正しい格子定数は，最も大きなM<sup>new</sup>を得た格子定数のうちのどれかと考えられる．
+ <Li> ほぼ同じ格子定数はBravais typeが異なる場合も，M<sup>new</sup>の値はほぼ同じになる．
+</ul>
+したがって，リストから正しい格子定数を選ぶ際は，
+figure of meritの値と，どのブラベー格子に分類されているかの両方をチェックしてください．
+</p>
+
+<h3><a name="ParametersToModify">うまくいかないときに変更するinput.txtのパラメータ</a></h3>
+<p>
+探索方法は以下の2通りから選択できます．
+<UL type="circle">
+	<LI> 高速探索 (対称性が高いユニットセルには十分な場合が多い), </LI>
+	<LI> 徹底探索 (全てのケースに有効). </LI>
+</UL>
+</p>
+<p> 以下の値を大きくすると探索領域はさらに拡大できますが(上のパラメータほど影響力が強い, input.txt内の説明も参照)，
+すでに大きめの値がデフォルト値として設定されています:
+<UL>
+ 	<LI> Upper bound on errors in phi, sigma, sigma_begin, sigma_end (入力角の誤差の上界): 1 度, </LI>
+ 	<LI> Max |h|,|k|,|l| used for indexing (指数付けに用いる|h|,|k|,|l|の最大値): 7, </LI>
+ 	<LI> Tolerance level for errors in the unit-cell scales (格子定数スケールの誤差の許容レベル): 3., </LI>
+ 	<LI> Resolution for Bravais-type determination (ブラベー格子決定で仮定する格子定数の解像度): 0.02. </LI>
+</UL>
+</p>
+
+<h3><a name="HowtoReportBugs">バグ報告のお願い</a></h3>
+<p>
+コード改善のために，疑わしい事例を見つけられましたら，以下のアドレスまでご連絡頂けると助かります．<BR>
+その際，"LOG_CONOGRAPH.txt"を含む全ての入出力ファイルをご添付ください．
+<UL>
+<LI> tomiyasu (at) imi.kyushu-u.ac.jp
+</UL>
+</p>
+
+<h3>論文の引用に関して</h3>
+<p>
+EBSD-CONOGRAPHを用いて得られた研究成果を発表される際は，以下の文献を引用してください．
+<OL class="bracket">
+<LI> R. Oishi-Tomiyasu, T. Tanaka, J. Nakagawa, 
+&#147;Distribution rules of systematic absence and generalized deWolff figure of merit applied to EBSD ab-initio indexing&#148;, 
+<a href="https://arxiv.org/abs/2003.13403.pdf">arxiv</a>.
+</LI>
+</OL>
+</p>
+
+<h3><a name="copyright">著作権について</a></h3>
+<p>
+本プログラムのソースコードは，MITライセンスの下，web上(EBSD-Conographプロジェクトの<a href="https://osdn.net/projects/ebsd-conograph/scm/">リポジトリリスト<a/>)で公開しています（2020/3/24現在）．
+</p>
+
+<A HREF="#">[Back to top]</A>
+<A HREF="https://researchmap.jp/rtomiyasu/works">[Go to my research page (list of software)]</A>
+</body>
+
