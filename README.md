@@ -29,7 +29,7 @@ Methods and programs for ab-initio indexing can be developed independently from 
   - [Input files](#Input_files)
   - [Output parameters](#Output_parameters)
   - [Figure of merit Mnew](#Figure_of_merit_Mnew)
-- [When results are not satisfactory, which parameters in the input.txt should be modified?](#When_results_are_not_satisfactory,which_parameters_in_input.txt_should_be_modified?)
+- [When results are not satisfactory, which parameters in the input.txt should be modified?](#How_to_modify_parameters_in_input_txt)
 
 ## How_to_use_the_EBSD_CONOGRAPH_program
 1. The software EBSD-CONOGRAPH requires the following data.txt and input.txt as input files. (Examples can be found in the Sample folder.) 
@@ -119,7 +119,7 @@ Since $`M^{new}`$ is a generalization of the de Wolff M used in powder indexing,
 
 Therefore, user should check both the value of the figure of merit and the Bravais types, when selecting the correct solution from the output list.
 
-## When_results_are_not_satisfactory,which_parameters_in_input.txt_should_be_modified?
+## How_to_modify_parameters_in_input_txt
 The following two options can be chosen as a searching method:
 - Quick search (often enough for unitcells with high symmetry),
 - Exhaustive search (for all cases).
