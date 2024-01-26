@@ -1,0 +1,117 @@
+<html lang="en">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="description" content="Formulas to represent band edges in Kikuchi patterns"> 
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    TeX: { equationNumbers: { autoNumber: "AMS" }},
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { matchFontHeight: false },
+    displayAlign: "left",
+    displayIndent: "2em"
+  });
+</script>
+<style type="text/css">
+   body { line-height: 1.5; }
+   p{text-indent:2em}
+</style>
+<head>
+<title> Formulas to represent band edges in an EBSD image </title>
+</head>
+<body>
+
+<font size="+1"><b> Formulas to represent band edges in Kikuchi pattern </b></font><br>
+<font size="-1" color="#339999"> [English / <a href="FormulasForEBSDBandEdges_JP.html">Japanese</a>] </font><BR>
+<p>
+Herein, the origin is considered as the projection center, and the axes and the unit of the length is fixed so that 
+the phosphor screen is included in the plane z=1.
+The following vectors are used in the following discussion:
+<ul>
+	<li> ${\mathbf z} = (0, 0, 1)^T$, </li>
+	<li> a reciprocal lattice vector ${\mathbf a}^*$, </li>
+	<li> ${\mathbf u} = {\mathbf a}^* / | {\mathbf a}^* |$. </li>
+</ul>
+
+The band center line in a Kikuchi pattern is the intersection of 
+the phosphor screen ${\mathbf z} \cdot {\mathbf x} = 1$ and the diffracting plane ${\mathbf a}^* \cdot {\mathbf x} = 0$.
+The Bragg equation $2 d \sin \theta = n \lambda$ ($n=1, 2, \ldots$)
+provides the relation between the Bragg angle &theta; and the d-spacing 
+$d = 1/|{\mathbf a}^* |$.
+</p>
+<p>
+For any point ${\mathbf x}$ of the Kossel Cone as in the following figure, 
+$({\mathbf x} \cdot {\mathbf u}) {\mathbf u}$ is the projection of ${\mathbf x}$
+in the direction of ${\mathbf a}^*$,
+and ${\mathbf x} - ({\mathbf x} \cdot {\mathbf u}) {\mathbf u}$ 
+is the projection in the plane orthogonal to ${\mathbf a}^*$.
+Hence, their lengths satisfy the right-hand equality:
+<table><tr><th>
+<img src="../figures/KosselCone2.png" width="252" height="285" alt="図">
+</th>
+<th>
+$$
+	\frac{ | ({\mathbf u} \cdot {\mathbf x}) {\mathbf u} |^2 }{ | {\mathbf x} - ({\mathbf u} \cdot {\mathbf x}) {\mathbf u} |^2 } = \tan^2 \theta.
+$$
+</th></tr></table>
+
+Therefore, the Kossel cone is a conical surface defined by:
+$$
+	({\mathbf u} \cdot {\mathbf x})^2 = | {\mathbf x} |^2 \sin^2 \theta.
+$$
+
+The band edges are the intersections of the Kossel cone and ${\mathbf z} \cdot {\mathbf x} = 1$.
+For simplicity, 
+we rotate the coordinate axes of the phosphor screen,
+and assume ${\mathbf u} = (-\cos \sigma, 0, \sin \sigma)$.
+In this case, from ${\mathbf u} \cdot {\mathbf x} = 0$, the equation of the band center line
+is provided by:
+$$
+	x = \tan \sigma.	
+$$
+
+As for the equation of the band edges, we have:
+$$
+	(-x \cos \sigma + \sin \sigma)^2 = (x^2 + y^2 + 1) \sin^2 \theta.
+$$
+
+As a result, the band edges are represented as the following hypebola:
+$$
+(\cos^2 \sigma-\sin^2 \theta) \left( x - \frac{ \cos \sigma \sin \sigma }{\cos^2 \sigma-\sin^2 \theta} \right)^2 - (\sin^2 \theta) y^2 = \frac{ \cos^2 \theta \sin^2 \theta }{\cos^2 \sigma-\sin^2 \theta}.
+$$
+
+The above is also equivalent to:
+$$
+\left( \frac{\cos 2 \sigma + \cos 2 \theta}{ \sin 2 \theta } \right)^2 \left( x - \frac{ \sin 2 \sigma }{ \cos 2 \sigma + \cos 2 \theta } \right)^2
+ - \frac{ \cos 2 \sigma + \cos 2 \theta }{ 2 \cos^2 \theta } y^2 = 1.
+$$
+
+
+In the case of EBSD images, $\cos 2 \sigma + \cos 2 \theta = \cos 2 \sigma + \cos 2 \theta > 0$ holds.
+The band width equals the distance between
+the two intersections $\sigma_{begin}, \sigma_{end}$ of the $x$-axis and the band edges:
+Furthermore, we have:
+\begin{eqnarray*}
+	\tan \sigma_{begin}
+ &=& \frac{ \sin 2\sigma - \sin 2 \theta }{ \cos 2 \sigma + \cos 2 \theta } 
+ = \frac{ (e^{i(\sigma + \theta)} + e^{-i(\sigma + \theta)})(e^{i(\sigma - \theta)} - e^{-i(\sigma - \theta)}) }
+{ i (e^{i(\sigma + \theta)} + e^{-i(\sigma + \theta)})(e^{i(\sigma - \theta)} + e^{-i(\sigma - \theta)}) } = \tan (\sigma - \theta), \\
+	\tan \sigma_{end}
+ &=& \frac{ \sin 2\sigma + \sin 2 \theta }{ \cos 2 \sigma + \cos 2 \theta } =
+\frac{ (e^{i(\sigma + \theta)} - e^{-i(\sigma + \theta)})(e^{i(\sigma - \theta)} + e^{-i(\sigma - \theta)}) }
+{ i (e^{i(\sigma + \theta)} + e^{-i(\sigma + \theta)})(e^{i(\sigma - \theta)} + e^{-i(\sigma - \theta)}) } = 
+ \tan (\sigma + \theta).
+\end{eqnarray*}
+
+As a result, $\sigma_{begin} = \sigma - \theta$, $\sigma_{end} = \sigma + \theta$ are also obtained.
+</p>
+
+<A HREF="#">[Back to top]</A>
+<A href="InstructionsEBSDConograph.html">[Go to the page of the EBSD ab-initio indexing software]</A>
+<A HREF="https://researchmap.jp/rtomiyasu/works?lang=en">[Go to my research page (list of software)]</A>
+</body>
+
