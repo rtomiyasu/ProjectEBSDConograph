@@ -54,7 +54,7 @@ Figure 2 explains how $`φ`$, $`σ`$, $`σ_{begin}`$, $`σ_{end}`$ are provided 
 through the projection center (PC).
 The pattern center O is the foot of the perpendicular line from the PC to the phosphor screen.
   - (b) Band edges are the intersections of the phosphor screen and conical surfaces (the so called, Kossel cones).
-They are parts of hyperbola lines ([formula](https://github.com/rtomiyasu/ProjectEBSDConograph/blob/main/EBSDConograph_0_9_99_win/html/FormulasForEBSDBandEdges_en.md)).
+They are parts of hyperbola lines ([formula](https://github.com/rtomiyasu/ProjectEBSDConograph/blob/main/html/FormulasForEBSDBandEdges_en.md)).
   - (c) The phosphor screen is parallel to the sheet.
 The unit of the length is fixed so that the camera length (= distance between the PC and the screen) equals 1.
 The φ is the angle between the x-axis and the perpendicular line from O to the band center line.

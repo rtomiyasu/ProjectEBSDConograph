@@ -52,7 +52,7 @@ Figure 2 にexplains how $`φ`$, $`σ`$, $`σ_{begin}`$, $`σ_{end}`$ がEBSD画
 
 - Figure 2:
   - (a) バンドの中心線は， 蛍光板とprojection center(PC)を通る回折面の交わり。パターンセンター O はPCから蛍光板に下した垂線の足の座標に等しい。
-  - (b) バンドエッジは，蛍光板と円錐面 (Kossel cone)の交わり，よって双曲線になる ([式](https://github.com/rtomiyasu/ProjectEBSDConograph/blob/main/EBSDConograph_0_9_99_win/html/FormulasForEBSDBandEdges_jp.md)). 
+  - (b) バンドエッジは，蛍光板と円錐面 (Kossel cone)の交わり，よって双曲線になる ([式](https://github.com/rtomiyasu/ProjectEBSDConograph/blob/main/html/FormulasForEBSDBandEdges_jp.md)). 
   - (c) 蛍光板は紙面と並行とし，長さの単位はカメラ長(= PCと蛍光板の距離)が1となるよう設定する． このとき，φは，X軸とPC2からバンドの中心線に下した垂線がなす角度に等しい． また，Oとバンドの中心線, バンドエッジとの距離から $`σ`$, $`σ_{begin}`$, $`σ_{end}`$が得られる．
 
 バンド幅情報は，長さの比a/c, b/cと角度α, β, γ を一意に決めるため，さらに格子定数のスケール (よってa, b, c)を得るために必要です．実際，図2(b)にみるように，ブラッグ角 θ は， $`2θ = σ_{end} - σ_{begin}`$ より，バンド幅から得ることができます．さらにブラッグの法則より，
