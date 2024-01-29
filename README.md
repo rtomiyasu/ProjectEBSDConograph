@@ -70,7 +70,7 @@ $`2d\sin{θ} = nλ`$, $`d`$ : spacing of the diffracting plane, $`n`$ : integer,
 
 Thus, if $`na^*`$($`n`$ : integer) are the reciprocal lattice vectors orthogonal to the diffracting plain,
 
-$`\sin{θ} = nλ/2d = |na^*|λ/2`$, | | is the vector length.&emsp&emsp&emsp(1)
+$`\sin{θ} = nλ/2d = |na^*|λ/2`$, | | is the vector length.&emsp;&emsp;&emsp;(1)
 
 As a result of Eq.(1), the bands correponding to the Miller indices $`n(hkℓ)`$ of $`na^∗`$ ($`n`$: integer), have the identical center lines but distinct band widths. Normally the band edges with n=±1 are the most clearly observed. However, visible bands are influenced by the magnitudes of structure factors and reflection rules due to the space-group symmetry (Nolze & Winkelmann, 2017), and furthermore, there seem to be exceptions (Fig. of Day (2008)).
 
