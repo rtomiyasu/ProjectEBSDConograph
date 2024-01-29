@@ -60,7 +60,7 @@ They are parts of hyperbola lines ([formula](https://github.com/rtomiyasu/Projec
   - (c) The phosphor screen is parallel to the sheet.
 The unit of the length is fixed so that the camera length (= distance between the PC and the screen) equals 1.
 The φ is the angle between the x-axis and the perpendicular line from O to the band center line.
-The σ, σbegin, σend are obtained from the distances of the center lines or the band edges from O.
+The $`σ`$, $`σ_{begin}`$, $`σ_{end}`$ are obtained from the distances of the center lines or the band edges from O.
 
 The band widths are necessary in order to uniquely determine the ratios a/c, b/c and the angles α, β, γ, and obtain the unitcell scale (and hence, a, b, c). In fact, the Bragg angle θ is obtained from the band width by the calculation $`2θ = σ_{end} - σ_{begin}`$.
 
