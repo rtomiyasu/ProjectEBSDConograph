@@ -1,3 +1,5 @@
+[to_English](https://github.com/rtomiyasu/ProjectEBSDConograph/blob/main/html/FormulasForEBSDBandEdges_en.md)
+
 # 菊池パターンのバンドエッジを表す式
 
 原点をプロジェクションセンターとし、蛍光板がz=1の平面内にくるように、長さの単位を設定する。 以下のベクトルを用いて式を導出する:

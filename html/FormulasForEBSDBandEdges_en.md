@@ -1,3 +1,5 @@
+[to_Japanse](https://github.com/rtomiyasu/ProjectEBSDConograph/blob/main/html/FormulasForEBSDBandEdges_jp.md)
+
 # Formulas to represent band edges in Kikuchi pattern
 
 Herein, the origin is considered as the projection center, and the axes and the unit of the length is fixed so that the phosphor screen is included in the plane z=1. The following vectors are used in the following discussion:
