@@ -121,3 +121,14 @@ $`M^{new}は粉末回折のde Wolff Mの一般化として定義されるため�
 - Max |h|,|k|,|l| used for indexing (指数付けに用いる|h|,|k|,|l|の最大値): 7,
 - Tolerance level for errors in the unit-cell scales (格子定数スケールの誤差の許容レベル): 3.,
 - Resolution for Bravais-type determination (ブラベー格子決定で仮定する格子定数の解像度): 0.02.
+
+## バグ報告のお願い
+コード改善のために，疑わしい事例を見つけられましたら，以下のアドレスまでご連絡頂けると助かります．
+その際，"LOG_CONOGRAPH.txt"を含む全ての入出力ファイルをご添付ください．
+
+tomiyasu.ryoko.446 (at) m.kyushu-u.ac.jp
+
+## 論文の引用に関して
+EBSD-CONOGRAPHを用いて得られた研究成果を発表される際は，以下の文献を引用してください．
+
+ R. Oishi-Tomiyasu, T. Tanaka, J. Nakagawa, “Distribution rules of systematic absence and generalized deWolff figure of merit applied to EBSD ab-initio indexing”, arxiv.

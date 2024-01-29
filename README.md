@@ -130,3 +130,13 @@ The searched region can be also expanded by increasing the following parameters 
 - Max |h|,|k|,|l| used for indexing : 7
 - Tolerance level for errors in the unitcell scales : 3
 - Resolution for Bravais-type determination : 0.02
+
+## ow do I report bugs?
+You should send us a bug report with all the input and output files attached (including LOG_CONOGRAPH.txt) to the following e-mail address:
+
+tomiyasu.ryoko.446 (at) m.kyushu-u.ac.jp
+
+## How do I cite EBSD-CONOGRAPH?
+If you use the program for your research, we strongly encourage you to include a citation of the following article in the bibliography.
+
+- R. Oishi-Tomiyasu, T. Tanaka, J. Nakagawa, “Distribution rules of systematic absence and generalized deWolff figure of merit applied to EBSD ab-initio indexing”, [arxiv](https://arxiv.org/abs/2003.13403).
