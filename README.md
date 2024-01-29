@@ -134,7 +134,7 @@ The searched region can be also expanded by increasing the following parameters 
 ## ow do I report bugs?
 You should send us a bug report with all the input and output files attached (including LOG_CONOGRAPH.txt) to the following e-mail address:
 
-tomiyasu.ryoko.446 (at) m.kyushu-u.ac.jp
+- tomiyasu.ryoko.446 (at) m.kyushu-u.ac.jp
 
 ## How do I cite EBSD-CONOGRAPH?
 If you use the program for your research, we strongly encourage you to include a citation of the following article in the bibliography.
