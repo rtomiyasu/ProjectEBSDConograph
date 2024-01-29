@@ -94,7 +94,7 @@ In the output files, candidate unitcells are classified by their Bravais types, 
  \end{pmatrix}, a,b,c,α,β,γ`$ : unitcell parameters.
 
 2. Euler angles $`θ_1`$, $`θ_2`$, $`θ_3`$ that represents the direction of the lattice (more precisely, the following orthogonal matrix $`G`$
-), and their estimated errors:
+), and their estimated errors:<br>
    $`G:=L^{-1}A=
    \begin{pmatrix}\cos{θ_1} & \sin{θ_1} & 0 \\-\sin{θ_1} & \cos{θ_1} & 0 \\0 & 0 & 1\end{pmatrix}
    \begin{pmatrix}1 & 0 & 0 \\0 & \cos{θ_2} & \sin{θ_2} \\0 & -\sin{θ_2} & \cos{θ_2} \end{pmatrix}
