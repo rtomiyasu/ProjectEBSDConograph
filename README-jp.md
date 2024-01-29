@@ -4,7 +4,7 @@
 
 ## 概要
 以下では，オープンソースの[EBSD-CONOGRAPH Version 0.99](https://github.com/rtomiyasu/ProjectEBSDConograph/tree/main/EBSDConograph_0_9_99_win) について説明します．
-このプログラムは， もともと粉末回折のために開発されたConographの方法に基づき， 電子線後方回折(EBSD)の菊池パターン (Figure 1)のバンド情報から，格子定数の推定とバンドの指数付けを同時に行うab-initio indexingを実施します．
+このプログラムは， もともと粉末回折のために開発された[Conograph](https://github.com/rtomiyasu/ProjectPowderConograph)の方法に基づき， 電子線後方回折(EBSD)の菊池パターン (Figure 1)のバンド情報から，格子定数の推定とバンドの指数付けを同時に行うab-initio indexingを実施します．
 
 ![KikuchiPattern](https://github.com/rtomiyasu/ProjectEBSDConograph/assets/149344913/79144fc3-949f-4cda-84c1-c193fe564090)
 ```
@@ -24,8 +24,7 @@ EBSDソフトウェアには，PC座標の補正とバンド検出を自動で�
 - ab-initio indexingでは，同程度に良い複数の異なる解が生じることがあり， 特に，バンドエッジが明瞭でなく格子の対称性が低いときに起こる [1]．
 
 ## FAQ
-- [EBSD-CONOGRAPHの使い方](#EBSD-CONOGRAPHの使い方
-)
+- [EBSD-CONOGRAPHの使い方](#EBSD-CONOGRAPHの使い方)
 - [入出力ファイルの内容について](#入出力ファイルの内容について)
   - [入力ファイル](#入力ファイル)
   - [出力されるパラメータ](#出力されるパラメータ)
@@ -36,13 +35,13 @@ EBSDソフトウェアには，PC座標の補正とバンド検出を自動で�
 
 ## EBSD-CONOGRAPHの使い方
 1. 同プログラムを実行するには，以下のdata.txt, input.txtを入力ファイルとして準備する必要があります． （付属の Sample フォルダに入力例があります．）
-    1. input.txt: 探索ファイルや出力を調整する入力パラータを含む ([例](https://github.com/rtomiyasu/ProjectEBSDConograph/blob/main/EBSDConograph_0_9_99_win/sample/Fe(four_columns%2Cuse_only_band_centers)/input.txt))。
-    1. data.txt: バンドの中心線とバンド幅の情報を含む．
-        1. Example 1: [data.txt](https://github.com/rtomiyasu/ProjectEBSDConograph/blob/main/EBSDConograph_0_9_99_win/sample/Fe(three_columns%2Cuse_band_widths)/data.txt) (3列データ: $`σ`$, $`σ_{begin}`$, $`σ_{end}`$。 このときσは、$`(σ_{begin} + σ_{end}) / 2`$とする),
-        1. Example 2: [data.txt](https://github.com/rtomiyasu/ProjectEBSDConograph/blob/main/EBSDConograph_0_9_99_win/sample/Fe3C(four_columns%2Cuse_band_width)/data.txt) (4列データ: $`φ`$, $`σ`$, $`σ_{begin}`$, $`σ_{end}`$).
-        1. data.txtの1行目では，以下のいずれを実行するかのフラグ 0/1を指定してください(3,4列データどちらでも同じ)．
-        1. 1: $`φ`$, $`σ`$, $`σ_{begin}`$, $`σ_{end}`$からの，格子定数の推定 * この場合，一般に，バンド幅($`σ_{begin}`$, $`σ_{end}`$)の精度が悪いため，得られる格子定数の精度も悪くなります。
-        1. 0: $`φ`$, $`σ`$からの，比 $`a/c`$, $`b/c`$ と角度 $`α`$, $`β`$, $`γ`$ の推定．
+    - input.txt: 探索ファイルや出力を調整する入力パラータを含む ([例](https://github.com/rtomiyasu/ProjectEBSDConograph/blob/main/EBSDConograph_0_9_99_win/sample/Fe(four_columns%2Cuse_only_band_centers)/input.txt))。
+    - data.txt: バンドの中心線とバンド幅の情報を含む．
+        - Example 1: [data.txt](https://github.com/rtomiyasu/ProjectEBSDConograph/blob/main/EBSDConograph_0_9_99_win/sample/Fe(three_columns%2Cuse_band_widths)/data.txt) (3列データ: $`σ`$, $`σ_{begin}`$, $`σ_{end}`$。 このときσは、$`(σ_{begin} + σ_{end}) / 2`$とする),
+        - Example 2: [data.txt](https://github.com/rtomiyasu/ProjectEBSDConograph/blob/main/EBSDConograph_0_9_99_win/sample/Fe3C(four_columns%2Cuse_band_width)/data.txt) (4列データ: $`φ`$, $`σ`$, $`σ_{begin}`$, $`σ_{end}`$).
+        - data.txtの1行目では，以下のいずれを実行するかのフラグ 0/1を指定してください(3,4列データどちらでも同じ)．
+          - 1: $`φ`$, $`σ`$, $`σ_{begin}`$, $`σ_{end}`$からの，格子定数の推定 * この場合，一般に，バンド幅($`σ_{begin}`$, $`σ_{end}`$)の精度が悪いため，得られる格子定数の精度も悪くなります。
+          - 0: $`φ`$, $`σ`$からの，比 $`a/c`$, $`b/c`$ と角度 $`α`$, $`β`$, $`γ`$ の推定．
 1. Sampleフォルダの中の一つのフォルダをコピーし， コピー先のフォルダ内のdata.txtを(解析結果をもっとよくしたい場合，input.txtも)適宜修正してください。
 1. コマンドプロンプト，またはお使いのOSのターミナルウィンドウを立ち上げ， 上で変更した入力ファイルと同じフォルダにカレントフォルダを移動してください
 1. コマンドプロンプトより，EBSDConograph.exeのパスを入力して実行します．
@@ -59,12 +58,11 @@ Figure 2 にexplains how $`φ`$, $`σ`$, $`σ_{begin}`$, $`σ_{end}`$ がEBSD画
 
 バンド幅情報は，長さの比a/c, b/cと角度α, β, γ を一意に決めるため，さらに格子定数のスケール (よってa, b, c)を得るために必要です．実際，図2(b)にみるように，ブラッグ角 θ は， $`2θ = σ_{end} - σ_{begin}`$ より，バンド幅から得ることができます．さらにブラッグの法則より，
 
-$`2dsinθ = nλ`$, $`d`$ : 回折面の格子面間隔,
-$`n`$ : 整数, $`λ`$ : 電子線ビームの波長
+$`2d\sin{θ} = nλ`$, $`d`$ : 回折面の格子面間隔, $`n`$ : 整数, $`λ`$ : 電子線ビームの波長
 
 このとき，各回折面に垂直な逆格子ベクトルを $`na^*`$($`n`$ : 整数)とすると、（||はベクトルの長さ）
 
-$`\sinθ = nλ/2d = |na^*|λ/2`$  (1)
+$`\sin{θ} = nλ/2d = |na^*|λ/2`$&emsp&emsp&emsp(1)
 
 式(1)より、$`na^∗`$ ($`n`$: 整数)のミラー指数 $`n(hkℓ)`$ に バンドの中心線は同一ですが， バンド幅は異なります。もっともよく見えるのは $`n=±1`$ のバンドであることが多いですが， 構造因子の大きさや空間群の消滅則の影響があり(Nolze & Winkelmann, 2017)，さらに例外もあるようです(Fig.19 of Day (2008))。
 
@@ -73,7 +71,7 @@ $`\sinθ = nλ/2d = |na^*|λ/2`$  (1)
 - Example 1: [out.txt](https://github.com/rtomiyasu/ProjectEBSDConograph/tree/main/EBSDConograph_0_9_99_win/sample/Fe(three_columns%2Cuse_band_widths)) (バンド幅を用いた場合)
 - Example 2: [out.txt](https://github.com/rtomiyasu/ProjectEBSDConograph/blob/main/EBSDConograph_0_9_99_win/sample/Fe(four_columns%2Cuse_only_band_centers)/output/out.txt) (φ, σのみを用いた場合)
 
-出力ファイルout.txtの各格子定数は，ブラべー格子で分類され， [1]で定義されたfigure of merit ($`m^{new}`$)でソートされています。 また以下のパラメータも非線形最小二乗法による精密化の後、出力されます。
+出力ファイルout.txtの各格子定数は，ブラべー格子で分類され， [1]で定義されたfigure of merit ($`M^{new}`$)でソートされています。 また以下のパラメータも非線形最小二乗法による精密化の後、出力されます。
 
 1. 以下の関係式を満たす実格子基底 $`a_1, a_2, a_3`$ とその各成分の推定誤差::
    $` 

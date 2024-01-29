@@ -2,7 +2,7 @@
 # Instructions for EBSD-CONOGRAPH (CUI version)
 
 ## Overview
-This page explains the open source software [EBSD-CONOGRAPH Version 0.99](https://github.com/rtomiyasu/ProjectEBSDConograph/tree/main/EBSDConograph_0_9_99_win). The software executes ab-initio indexing of Kikuchi patterns (Figure 1) obtained by electron Backscatter Diffraction (EBSD). The indexing method is based on the CONOGRAPH method originally invented for the powder auto-indexing software.
+This page explains the open source software [EBSD-CONOGRAPH Version 0.99](https://github.com/rtomiyasu/ProjectEBSDConograph/tree/main/EBSDConograph_0_9_99_win). The software executes ab-initio indexing of Kikuchi patterns (Figure 1) obtained by electron Backscatter Diffraction (EBSD). The indexing method is based on the CONOGRAPH method originally invented for [the powder auto-indexing software](https://github.com/rtomiyasu/ProjectPowderConograph).
 
 ![KikuchiPattern](https://github.com/rtomiyasu/ProjectEBSDConograph/assets/149344913/79144fc3-949f-4cda-84c1-c193fe564090)
 ```
@@ -35,15 +35,15 @@ Methods and programs for ab-initio indexing can be developed independently from 
 
 ## How_to_use_the_EBSD_CONOGRAPH_program
 1. The software EBSD-CONOGRAPH requires the following data.txt and input.txt as input files. (Examples can be found in the Sample folder.) 
-    1. input.txt: includes input parameters to adjust the search method and the output. ([Example](https://github.com/rtomiyasu/ProjectEBSDConograph/blob/main/EBSDConograph_0_9_99_win/sample/Fe(four_columns%2Cuse_only_band_centers)/input.txt))
-    1. data.txt: includes information about the band center positions and band widths.
-        1. Example 1: [data.txt](https://github.com/rtomiyasu/ProjectEBSDConograph/blob/main/EBSDConograph_0_9_99_win/sample/Fe(three_columns%2Cuse_band_widths)/data.txt) (3 columns: $`σ`$, $`σ_{begin}`$, $`σ_{end}`$. The σ is set to $`(σ_{begin} + σ_{end}) / 2`$) in this case,
-        1. Example 2: [data.txt](https://github.com/rtomiyasu/ProjectEBSDConograph/blob/main/EBSDConograph_0_9_99_win/sample/Fe3C(four_columns%2Cuse_band_width)/data.txt) (4 columns: $`φ`$, $`σ`$, $`σ_{begin}`$, $`σ_{end}`$).
-        1. The flag 0/1 in the first line of data.txt indicates either of the following options:
-        1. 1: estimation of the unitcell parameters from $`φ`$, $`σ`$, $`σ_{begin}`$, $`σ_{end}`$ * The uncertainties of the unitcell parameters are increased in this case, because of errors in band widths (i.e., $`σ_{begin}`$, $`σ_{end}`$.)
-        1. 0: estimation of the length ratios a/c, b/c and the angles α, β, γ based on only φ and σ.
+    - input.txt: includes input parameters to adjust the search method and the output. ([Example](https://github.com/rtomiyasu/ProjectEBSDConograph/blob/main/EBSDConograph_0_9_99_win/sample/Fe(four_columns%2Cuse_only_band_centers)/input.txt))
+    - data.txt: includes information about the band center positions and band widths.
+        - Example 1: [data.txt](https://github.com/rtomiyasu/ProjectEBSDConograph/blob/main/EBSDConograph_0_9_99_win/sample/Fe(three_columns%2Cuse_band_widths)/data.txt) (3 columns: $`σ`$, $`σ_{begin}`$, $`σ_{end}`$. The σ is set to $`(σ_{begin} + σ_{end}) / 2`$) in this case,
+        - Example 2: [data.txt](https://github.com/rtomiyasu/ProjectEBSDConograph/blob/main/EBSDConograph_0_9_99_win/sample/Fe3C(four_columns%2Cuse_band_width)/data.txt) (4 columns: $`φ`$, $`σ`$, $`σ_{begin}`$, $`σ_{end}`$).
+        - The flag 0/1 in the first line of data.txt indicates either of the following options:
+          - 1: estimation of the unitcell parameters from $`φ`$, $`σ`$, $`σ_{begin}`$, $`σ_{end}`$ <br>* The uncertainties of the unitcell parameters are increased in this case, because of errors in band widths (i.e., $`σ_{begin}`$, $`σ_{end}`$.)
+          - 0: estimation of the length ratios a/c, b/c and the angles α, β, γ based on only φ and σ.
 1. Copy one of the folders from the Sample folder. Modify the contents of data.txt (and input.txt in order to improve the indexing results).
-1. Open a command prompt or terminal window in your operating system. Change the current folder to the same folder that contains the modified input files.
+1. Open a command prompt or terminal window in your operating system.<br>Change the current folder to the same folder that contains the modified input files.
 1. Enter the path to the EBSDConograph.exe file on the Command Prompt window and execute EBSDConograph.
 
 ## On_the_contents_of_the_input_and_output_files
@@ -66,11 +66,11 @@ The band widths are necessary in order to uniquely determine the ratios a/c, b/c
 
 Futhermore, by the Bragg's law,
 
-$`2dsinθ = nλ`$, $`d`$ : spacing of the diffracting plane, $`n`$ : integer, $`λ`$ : wave length of the electron beam
+$`2d\sin{θ} = nλ`$, $`d`$ : spacing of the diffracting plane, $`n`$ : integer, $`λ`$ : wave length of the electron beam
 
 Thus, if $`na^*`$($`n`$ : integer) are the reciprocal lattice vectors orthogonal to the diffracting plain,
 
-$`sinθ = nλ/2d = |na^*|λ/2`$, | | is the vector length.  (1)
+$`\sin{θ} = nλ/2d = |na^*|λ/2`$, | | is the vector length.&emsp&emsp&emsp(1)
 
 As a result of Eq.(1), the bands correponding to the Miller indices $`n(hkℓ)`$ of $`na^∗`$ ($`n`$: integer), have the identical center lines but distinct band widths. Normally the band edges with n=±1 are the most clearly observed. However, visible bands are influenced by the magnitudes of structure factors and reflection rules due to the space-group symmetry (Nolze & Winkelmann, 2017), and furthermore, there seem to be exceptions (Fig. of Day (2008)).
 
