@@ -103,7 +103,7 @@ $`\sinθ = nλ/2d = |na^*|λ/2`$  (1)
 - 上記の推定誤差は， 入力角 $`φ`$, $`σ`$, $`σ_{begin}`$, $`σ_{end}`$ が 1度程度の誤差を有するという仮定の下で 非線形最小二乗法を実施したときの波及誤差になる．
 
 ### Figure_of_merit_Mnew
-$`M^{new}は粉末回折のde Wolff Mの一般化として定義されるため， Mは対称性の高い格子を好むという点を除けば， 非常によく似た性質を持ちます ([参照](https://github.com/rtomiyasu/ProjectEBSDConograph/blob/main/EBSDConograph_0_9_99_win/figures/table5_2_jp.png))．すなわち，
+$`M^{new}は粉末回折のde Wolff Mの一般化として定義されるため， Mは対称性の高い格子を好むという点を除けば， 非常によく似た性質を持ちます ([参照](https://github.com/rtomiyasu/ProjectEBSDConograph/blob/main/figures/table5_2_jp.png))．すなわち，
 - ある格子定数について$`M^{new} > 10`$ なら，指数付けに成功した可能性が高い。
 - 正しい格子定数は，最も大きな $`M^{new}`$ を得た格子定数のうちのどれかと考えられる。
 - ほぼ同じ格子定数はBravais typeが異なる場合も，$`M^{new}`$ の値はほぼ同じになる。

@@ -112,7 +112,7 @@ The following should be noted, with regard to the above parameters:
 - the above estimated errors are propagation errors, when it is assumed in the non-linear least squares method that the input angles $`φ`$, $`σ`$, $`σ_{begin}`$, $`σ_{end}`$ have errors within 1 degree.
 
 ### Figure_of_merit_Mnew
-Since $`M^{new}`$ is a generalization of the de Wolff M used in powder indexing, $`M`$ and $`M^{new}`$ have similar properties, except that M prefers higher-symmetric cells ([c.f.](https://github.com/rtomiyasu/ProjectEBSDConograph/blob/main/EBSDConograph_0_9_99_win/figures/table5_2_en.png)). Namely,
+Since $`M^{new}`$ is a generalization of the de Wolff M used in powder indexing, $`M`$ and $`M^{new}`$ have similar properties, except that M prefers higher-symmetric cells ([c.f.](https://github.com/rtomiyasu/ProjectEBSDConograph/blob/main/figures/table5_2_en.png)). Namely,
 - If $`M^{new} > 10`$ for some unitcells, there are much possibility that the correct solution has been obtained.
 - The correct solution should be one of the unitcells that gained approximately the largest Mnew value.
 - Similar unitcell parameters have similar Mnew values, even if they belong to distinct Bravais types.
