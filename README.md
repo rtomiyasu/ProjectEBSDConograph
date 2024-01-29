@@ -30,6 +30,8 @@ Methods and programs for ab-initio indexing can be developed independently from 
   - [Output parameters](#Output_parameters)
   - [Figure of merit Mnew](#Figure_of_merit_Mnew)
 - [When results are not satisfactory, which parameters in the input.txt should be modified?](#How_to_modify_parameters_in_input_txt)
+- [How do I repot bugs?](#How_do_I_report_bugs)
+- [How do I cite EBSD-CONOGRAPH?](#How_do_I_cite_EBSD_CONOGRAPH)
 
 ## How_to_use_the_EBSD_CONOGRAPH_program
 1. The software EBSD-CONOGRAPH requires the following data.txt and input.txt as input files. (Examples can be found in the Sample folder.) 
@@ -131,12 +133,12 @@ The searched region can be also expanded by increasing the following parameters 
 - Tolerance level for errors in the unitcell scales : 3
 - Resolution for Bravais-type determination : 0.02
 
-## How do I report bugs?
+## How_do_I_report_bugs
 You should send us a bug report with all the input and output files attached (including LOG_CONOGRAPH.txt) to the following e-mail address:
 
 - tomiyasu.ryoko.446 (at) m.kyushu-u.ac.jp
 
-## How do I cite EBSD-CONOGRAPH?
+## How_do_I_cite_EBSD_CONOGRAPH
 If you use the program for your research, we strongly encourage you to include a citation of the following article in the bibliography.
 
 - R. Oishi-Tomiyasu, T. Tanaka, J. Nakagawa, “Distribution rules of systematic absence and generalized deWolff figure of merit applied to EBSD ab-initio indexing”, [arxiv](https://arxiv.org/abs/2003.13403).
