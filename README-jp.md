@@ -131,4 +131,4 @@ $`M^{new}は粉末回折のde Wolff Mの一般化として定義されるため�
 ## 論文の引用に関して
 EBSD-CONOGRAPHを用いて得られた研究成果を発表される際は，以下の文献を引用してください．
 
- R. Oishi-Tomiyasu, T. Tanaka, J. Nakagawa, “Distribution rules of systematic absence and generalized deWolff figure of merit applied to EBSD ab-initio indexing”, arxiv.
+ R. Oishi-Tomiyasu, T. Tanaka, J. Nakagawa, “Distribution rules of systematic absence and generalized deWolff figure of merit applied to EBSD ab-initio indexing”, [arxiv](https://arxiv.org/abs/2003.13403).
