@@ -79,7 +79,7 @@ The following are the output files of the software:
 - Example 1: [out.txt](https://github.com/rtomiyasu/ProjectEBSDConograph/tree/main/EBSDConograph_0_9_99_win/sample/Fe(three_columns%2Cuse_band_widths)) (when band widths are also used),
 - Example 2: [out.txt](https://github.com/rtomiyasu/ProjectEBSDConograph/blob/main/EBSDConograph_0_9_99_win/sample/Fe(four_columns%2Cuse_only_band_centers)/output/out.txt) (when only φ and σ are used).
 
-In the output files, candidate unitcells are classified by their Bravais types, and sorted by the values of the figure of merit ($`m^{new}`$) defined in [1]. The following parameters are also output, after they are refined by using a non-linear squares method:
+In the output files, candidate unitcells are classified by their Bravais types, and sorted by the values of the figure of merit ($`M^{new}`$) defined in [1]. The following parameters are also output, after they are refined by using a non-linear squares method:
 
 1. The basis $`a_1, a_2, a_3`$ of the crystal lattice that satisfies the following equation, and the estimated errors of their components:
    $` 
@@ -116,8 +116,8 @@ The following should be noted, with regard to the above parameters:
 ### Figure_of_merit_Mnew
 Since $`M^{new}`$ is a generalization of the de Wolff M used in powder indexing, $`M`$ and $`M^{new}`$ have similar properties, except that M prefers higher-symmetric cells ([c.f.](https://github.com/rtomiyasu/ProjectEBSDConograph/blob/main/figures/table5_2_en.png)). Namely,
 - If $`M^{new} > 10`$ for some unitcells, there are much possibility that the correct solution has been obtained.
-- The correct solution should be one of the unitcells that gained approximately the largest Mnew value.
-- Similar unitcell parameters have similar Mnew values, even if they belong to distinct Bravais types.
+- The correct solution should be one of the unitcells that gained approximately the largest $`M^{new}`$ value.
+- Similar unitcell parameters have similar $`M^{new}`$ values, even if they belong to distinct Bravais types.
 
 Therefore, user should check both the value of the figure of merit and the Bravais types, when selecting the correct solution from the output list.
 
