@@ -11,7 +11,11 @@ Yellow lines indicate band centers (or lines parallel to them).
 The red segments, which are parts of the perpendicular lines through the pattern center,
 indicate the band widths.
 ```
-## Prior Information
+## NEWS
+### 2024/1/31
+- The web page of the source codes was moved from OSDN to GitHub.
+
+## Information
 Before starting the software, it is necessary to extract the following information from the Kikuchi pattern and input them from data.txt:
 1. band-center positions (φ, σ),
 1. band widths ($`σ_{begin}`$, $`σ_{end}`$).
