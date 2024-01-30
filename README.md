@@ -1,4 +1,4 @@
-[to Japanes](https://github.com/rtomiyasu/ProjectEBSDConograph/blob/main/README-jp.md)
+[to Japanese](https://github.com/rtomiyasu/ProjectEBSDConograph/blob/main/README-jp.md)
 # Instructions for EBSD-CONOGRAPH (CUI version)
 
 ## Overview
