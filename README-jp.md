@@ -130,7 +130,7 @@ $`M^{new}は粉末回折のde Wolff Mの一般化として定義されるため�
 コード改善のために，疑わしい事例を見つけられましたら，以下のアドレスまでご連絡頂けると助かります．
 その際，"LOG_CONOGRAPH.txt"を含む全ての入出力ファイルをご添付ください．
 
-- tomiyasu.ryoko.446 (at) m.kyushu-u.ac.jp
+- tomiyasu (at) imi.kyushu-u.ac.jp
 
 ## 論文の引用に関して
 EBSD-CONOGRAPHを用いて得られた研究成果を発表される際は，以下の文献を引用してください．
