@@ -2,7 +2,7 @@
 # Instructions for EBSD-CONOGRAPH (CUI version)
 
 ## Overview
-This page explains the open source software [EBSD-CONOGRAPH Version 0.99](https://github.com/rtomiyasu/ProjectEBSDConograph/tree/main/EBSDConograph_0_9_99_win). The software executes ab-initio indexing of Kikuchi patterns (Figure 1) obtained by electron Backscatter Diffraction (EBSD). The indexing method is based on the CONOGRAPH method originally invented for [the powder auto-indexing software](https://github.com/rtomiyasu/ProjectPowderConograph).
+This page explains the open source software [EBSD-CONOGRAPH Version 0.99](https://github.com/rtomiyasu/ProjectEBSDConograph/tree/main/EBSDConograph_0_9_99_win). The software executes ab-initio indexing of Kikuchi patterns (Figure 1) obtained by electron Backscatter Diffraction (EBSD). The indexing method is based on the CONOGRAPH method originally invented for [the powder auto-indexing software](https://github.com/rtomiyasu/ProjectPowderConograph) ([GUI version](https://z-code-software.com/)).
 
 ![KikuchiPattern](https://github.com/rtomiyasu/ProjectEBSDConograph/assets/149344913/79144fc3-949f-4cda-84c1-c193fe564090)
 ```
