@@ -41,7 +41,7 @@ Methods and programs for ab-initio indexing can be developed independently from 
 1. The software EBSD-CONOGRAPH requires the following data.txt and input.txt as input files. (Examples can be found in the Sample folder.) 
     - input.txt: includes input parameters to adjust the search method and the output. ([Example](https://github.com/rtomiyasu/ProjectEBSDConograph/blob/main/EBSDConograph_0_9_99_win/sample/Fe(four_columns%2Cuse_only_band_centers)/input.txt))
     - data.txt: includes information about the band center positions and band widths.
-        - Example 1: [data.txt](https://github.com/rtomiyasu/ProjectEBSDConograph/blob/main/EBSDConograph_0_9_99_win/sample/Fe(three_columns%2Cuse_band_widths)/data.txt) (3 columns: $`σ`$, $`σ_{begin}`$, $`σ_{end}`$. The σ is set to $`(σ_{begin} + σ_{end}) / 2`$) in this case,
+        - Example 1: [data.txt](https://github.com/rtomiyasu/ProjectEBSDConograph/blob/main/EBSDConograph_0_9_99_win/sample/Fe(three_columns%2Cuse_band_widths)/data.txt) (3 columns: $`φ`$, $`σ_{begin}`$, $`σ_{end}`$. The σ is set to $`(σ_{begin} + σ_{end}) / 2`$) in this case,
         - Example 2: [data.txt](https://github.com/rtomiyasu/ProjectEBSDConograph/blob/main/EBSDConograph_0_9_99_win/sample/Fe3C(four_columns%2Cuse_band_width)/data.txt) (4 columns: $`φ`$, $`σ`$, $`σ_{begin}`$, $`σ_{end}`$).
         - The flag 0/1 in the first line of data.txt indicates either of the following options:
           - 1: estimation of the unitcell parameters from $`φ`$, $`σ`$, $`σ_{begin}`$, $`σ_{end}`$ <br>* The uncertainties of the unitcell parameters are increased in this case, because of errors in band widths (i.e., $`σ_{begin}`$, $`σ_{end}`$.)
@@ -80,7 +80,7 @@ As a result of Eq.(1), the bands correponding to the Miller indices $`n(hkℓ)`$
 
 ### Output_parameters
 The following are the output files of the software:
-- Example 1: [out.txt](https://github.com/rtomiyasu/ProjectEBSDConograph/tree/main/EBSDConograph_0_9_99_win/sample/Fe(three_columns%2Cuse_band_widths)) (when band widths are also used),
+- Example 1: [out.txt](https://github.com/rtomiyasu/ProjectEBSDConograph/blob/main/EBSDConograph_0_9_99_win/sample/Fe(three_columns%2Cuse_band_widths)) (when band widths are also used),
 - Example 2: [out.txt](https://github.com/rtomiyasu/ProjectEBSDConograph/blob/main/EBSDConograph_0_9_99_win/sample/Fe(four_columns%2Cuse_only_band_centers)/output/out.txt) (when only φ and σ are used).
 
 In the output files, candidate unitcells are classified by their Bravais types, and sorted by the values of the figure of merit ($`M^{new}`$) defined in [1]. The following parameters are also output, after they are refined by using a non-linear squares method:
