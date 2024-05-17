@@ -12,7 +12,7 @@ The red segments, which are parts of the perpendicular lines through the pattern
 indicate the band widths.
 ```
 ## NEWS
-### 2024/1/31
+### 2024/5/16
 - The web page of the source codes was moved from OSDN to GitHub.
 
 ## Information
