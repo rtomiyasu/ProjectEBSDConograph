@@ -73,7 +73,7 @@ $`\sin{θ} = nλ/2d = |na^*|λ/2`$&emsp;&emsp;&emsp;(1)
 ### 出力されるパラメータ
 以下はソフトウェアの出力ファイルの例です:
 - Example 1: [out.txt](https://github.com/rtomiyasu/ProjectEBSDConograph/blob/main/EBSDConograph_0_9_99_win/sample/Fe(three_columns%2use_band_widths)/output/out.txt) (バンド幅を用いた場合)
-- Example 2: [out.txt](https://github.com/rtomiyasu/ProjectEBSDConograph/blob/main/EBSDConograph_0_9_99_win/sample/Fe(four_columns%2use_only_band_centers)/output/out.txt) (φ, σのみを用いた場合)
+- Example 2: [out.txt](https://github.com/rtomiyasu/ProjectEBSDConograph/blob/main/EBSDConograph_0_9_99_win/sample/Fe(four_columns%2Cuse_only_band_centers)/output/out.txt) (φ, σのみを用いた場合)
 
 出力ファイルout.txtの各格子定数は，ブラべー格子で分類され， [1]で定義されたfigure of merit ($`M^{new}`$)でソートされています。 また以下のパラメータも非線形最小二乗法による精密化の後、出力されます。
 
