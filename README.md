@@ -145,4 +145,4 @@ You should send us a bug report with all the input and output files attached (in
 ## How_do_I_cite_EBSD_CONOGRAPH
 If you use the program for your research, we strongly encourage you to include a citation of the following article in the bibliography.
 
-- R. Oishi-Tomiyasu, T. Tanaka, J. Nakagawa, “Distribution rules of systematic absence and generalized deWolff figure of merit applied to EBSD ab-initio indexing”, [arxiv](https://arxiv.org/abs/2003.13403).
+- R. Oishi-Tomiyasu, T. Tanaka, J. Nakagawa, “Distribution rules of systematic absence and generalized deWolff figure of merit applied to EBSD ab-initio indexing”, [web page](https://onlinelibrary.wiley.com/iucr/doi/10.1107/S1600576721002120).
