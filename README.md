@@ -80,8 +80,8 @@ As a result of Eq.(1), the bands correponding to the Miller indices $`n(hkℓ)`$
 
 ### Output_parameters
 The following are the output files of the software:
-- Example 1: [out.txt](https://github.com/rtomiyasu/ProjectEBSDConograph/tree/main/EBSDConograph_0_9_99_win/sample/Fe(three_columns,Cuse_band_widths)/output/out.txt) (when band widths are also used),
-- Example 2: [out.txt](https://github.com/rtomiyasu/ProjectEBSDConograph/tree/main/EBSDConograph_0_9_99_win/sample/Fe(four_columns,Cuse_only_band_centers)/output/out.txt) (when only φ and σ are used).
+- Example 1: [out.txt](https://github.com/rtomiyasu/ProjectEBSDConograph/blob/main/EBSDConograph_0_9_99_win/sample/Fe(three_columns%2Cuse_band_widths)/output/out.txt) (when band widths are also used),
+- Example 2: [out.txt](https://github.com/rtomiyasu/ProjectEBSDConograph/blob/main/EBSDConograph_0_9_99_win/sample/Fe(four_columns%2Cuse_only_band_centers)/output/out.txt) (when only φ and σ are used).
 
 In the output files, candidate unitcells are classified by their Bravais types, and sorted by the values of the figure of merit ($`M^{new}`$) defined in [1]. The following parameters are also output, after they are refined by using a non-linear squares method:
 
