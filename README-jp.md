@@ -41,7 +41,7 @@ EBSDソフトウェアには，PC座標の補正とバンド検出を自動で�
 1. 同プログラムを実行するには，以下のdata.txt, input.txtを入力ファイルとして準備する必要があります． （付属の Sample フォルダに入力例があります．）
     - input.txt: 探索ファイルや出力を調整する入力パラータを含む ([例](https://github.com/rtomiyasu/ProjectEBSDConograph/blob/main/EBSDConograph_0_9_99_win/sample/Fe(four_columns%2Cuse_only_band_centers)/input.txt))。
     - data.txt: バンドの中心線とバンド幅の情報を含む．
-        - Example 1: [data.txt](https://github.com/rtomiyasu/ProjectEBSDConograph/blob/main/EBSDConograph_0_9_99_win/sample/Fe(three_columns%2Cuse_band_widths)/data.txt) (3列データ: $`σ`$, $`σ_{begin}`$, $`σ_{end}`$。 このときσは、$`(σ_{begin} + σ_{end}) / 2`$とする),
+        - Example 1: [data.txt](https://github.com/rtomiyasu/ProjectEBSDConograph/blob/main/EBSDConograph_0_9_99_win/sample/Fe(three_columns%2Cuse_band_widths)/data.txt) (3列データ: $`φ`$, $`σ_{begin}`$, $`σ_{end}`$。 このときσは、$`(σ_{begin} + σ_{end}) / 2`$とする),
         - Example 2: [data.txt](https://github.com/rtomiyasu/ProjectEBSDConograph/blob/main/EBSDConograph_0_9_99_win/sample/Fe3C(four_columns%2Cuse_band_width)/data.txt) (4列データ: $`φ`$, $`σ`$, $`σ_{begin}`$, $`σ_{end}`$).
         - data.txtの1行目では，以下のいずれを実行するかのフラグ 0/1を指定してください(3,4列データどちらでも同じ)．
           - 1: $`φ`$, $`σ`$, $`σ_{begin}`$, $`σ_{end}`$からの，格子定数の推定 * この場合，一般に，バンド幅($`σ_{begin}`$, $`σ_{end}`$)の精度が悪いため，得られる格子定数の精度も悪くなります。
